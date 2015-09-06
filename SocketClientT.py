@@ -27,9 +27,9 @@ try:
             if not len(data_buf):
                 print "Server Disconnected"
                 break
-            # if HEARTBEAT in data_buf:
-            #     send_response()
-            #     continue
+            if HEARTBEAT in data_buf:
+                send_response()
+                continue
             data = "".join([data, data_buf])
             matchobj = re.match(r'^command: (.*)End', data_buf, re.I)
             if matchobj is not None:
